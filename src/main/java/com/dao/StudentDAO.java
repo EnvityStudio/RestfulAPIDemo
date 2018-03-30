@@ -45,7 +45,6 @@ public class StudentDAO implements IStudentDAO {
 		Student student1 = getStudentById(student.getId());
 		student1.setAge(student.getAge());
 		student1.setName(student.getName());
-		student1.setNameclass(student.getNameclass());
 		entityManager.flush();
 	}
 

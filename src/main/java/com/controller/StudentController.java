@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.UriComponentsBuilder;
-
 import com.entity.Student;
 import com.service.IStudentService;
 
@@ -41,7 +39,7 @@ public class StudentController {
 	}
 
 	@PostMapping("add")
-	public ResponseEntity<Void> addStudent(@RequestBody Student student, UriComponentsBuilder builder) {
+	public ResponseEntity<Void> addStudent(@RequestBody Student student) {
 		iStudentService.addStudent(student);
 		HttpHeaders headers =new HttpHeaders();
 		headers.add("message", "success");
