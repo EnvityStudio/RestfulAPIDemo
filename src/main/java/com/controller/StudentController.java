@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.entity.Lesson;
 import com.entity.Student;
 import com.service.IStudentService;
 
@@ -30,6 +32,11 @@ public class StudentController {
 	public ResponseEntity<List<Student>> getAllStudent() {
 		List<Student> list = iStudentService.getAllStudent();
 		return new ResponseEntity<List<Student>>(list, HttpStatus.OK);
+	}
+	@RequestMapping("/alllessons")
+	public ResponseEntity<List<Lesson>> getAllLessons(){
+		List<Lesson> list = iStudentService.getListLesson();
+		return new ResponseEntity<List<Lesson>> (list,HttpStatus.OK);
 	}
 
 	@GetMapping("student/{id}")

@@ -6,11 +6,12 @@ package com.service;
  */
 import java.util.List;
 
+import com.entity.Lesson;
 import com.entity.Student;
 
 public interface IStudentService {
 	List<Student> getAllStudent();
-
+	List<Lesson> getListLesson();
 	void addStudent(Student student);
 
 	void deleteStudent(int idStudent);

@@ -1,38 +1,33 @@
 package com.entity;
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "lesson")
-public class Lesson {
+@Table(name = "user")
+public class User {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
 	@Column(name = "name")
 	private String name;
-	@ManyToMany(mappedBy = "lessons", fetch = FetchType.LAZY)
-	@JsonIgnore
-	private Set<Student> student = new HashSet<Student>();
+	@Column(name = "password")
+	private String password;
 
-	public Lesson() {
-	}
-
-	public Lesson(int id, String name, Set<Student> student) {
+	public User(int id, String name, String password) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.student = student;
+		this.password = password;
+	}
+
+	public User() {
 	}
 
 	public int getId() {
@@ -51,11 +46,11 @@ public class Lesson {
 		this.name = name;
 	}
 
-	public Set<Student> getStudents() {
-		return student;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setStudents(Set<Student> students) {
-		this.student = students;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

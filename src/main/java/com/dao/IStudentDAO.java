@@ -6,11 +6,12 @@ package com.dao;
  */
 import java.util.List;
 
+import com.entity.Lesson;
 import com.entity.Student;
 
 public interface IStudentDAO {
 	List<Student> getAllStudent();
-
+	List<Lesson> getAllLesson();
 	void addStudent(Student student);
 
 	void deleteStudent(int idStudent);
@@ -18,4 +19,5 @@ public interface IStudentDAO {
 	void updateStudent(Student student);
 
 	Student getStudentById(int idStudent);
+	
 }

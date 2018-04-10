@@ -13,6 +13,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.entity.Lesson;
 import com.entity.Student;
 
 @Transactional
@@ -20,7 +21,7 @@ import com.entity.Student;
 public class StudentDAO implements IStudentDAO {
 	@PersistenceContext
 	private EntityManager entityManager;
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Student> getAllStudent() {
@@ -52,6 +53,15 @@ public class StudentDAO implements IStudentDAO {
 	public Student getStudentById(int idStudent) {
 		return entityManager.find(Student.class, idStudent);
 
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Lesson> getAllLesson() {
+		String hql = " FROM Lesson";
+		List<Lesson> list = new ArrayList<>();
+		list = entityManager.createQuery(hql).getResultList();
+		return list;
 	}
 
 }

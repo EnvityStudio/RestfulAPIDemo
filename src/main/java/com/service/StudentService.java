@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.IStudentDAO;
+import com.entity.Lesson;
 import com.entity.Student;
 
 @Service
@@ -42,6 +43,11 @@ public class StudentService implements IStudentService {
 	public Student getStudentById(int idStudent) {
 		
 		return iStudentDAO.getStudentById(idStudent);
+	}
+
+	@Override
+	public List<Lesson> getListLesson() {
+		return iStudentDAO.getAllLesson();
 	}
 
 }
